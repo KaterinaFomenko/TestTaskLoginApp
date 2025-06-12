@@ -2,11 +2,10 @@
 //  TestTaskLoginAppTests.swift
 //  TestTaskLoginAppTests
 //
-//  Created by Катерина Фоменко on 12/06/2025.
+//  Created by Катерина Фоменко on 11/06/2025.
 //
 
 import Testing
-@testable import TestTaskLoginApp
 
 struct TestTaskLoginAppTests {
 

@@ -2,7 +2,7 @@
 //  TestTaskLoginAppUITests.swift
 //  TestTaskLoginAppUITests
 //
-//  Created by Катерина Фоменко on 12/06/2025.
+//  Created by Катерина Фоменко on 11/06/2025.
 //
 
 import XCTest
