@@ -1,5 +1,5 @@
 //
-//  TextFieldGroupe.swift
+//  TextFieldGroupeView.swift
 //  TestTaskLoginApp
 //
 //  Created by Катерина Фоменко on 14/06/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldGroupe: View {
+struct TextFieldGroupeView: View {
     @Binding var name: String
     @Binding var email: String
     @Binding var phone: String
@@ -34,13 +34,13 @@ struct TextFieldGroupe: View {
                     .padding(.leading)
             }
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
 #Preview("With Data") {
     
-    TextFieldGroupe(name: .constant("Malcolm Bailey"),
+    TextFieldGroupeView(name: .constant("Malcolm Bailey"),
                     email: .constant("jany_murazik@gmail.com"),
                     phone: .constant("+3(098) 111 11 11"),
                     position: .constant("Frontend")
@@ -49,7 +49,7 @@ struct TextFieldGroupe: View {
 
 #Preview("Empty Data") {
     
-    TextFieldGroupe(name: .constant(""),
+    TextFieldGroupeView(name: .constant(""),
                     email: .constant(""),
                     phone: .constant(""),
                     position: .constant("")

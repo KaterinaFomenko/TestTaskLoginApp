@@ -1,5 +1,5 @@
 //
-//  GetRequest.swift
+//  GetRequestView.swift
 //  TestTaskLoginApp
 //
 //  Created by Катерина Фоменко on 14/06/2025.
@@ -12,7 +12,7 @@ enum GetPost: String {
     case post = "POST"
 }
 
-struct GetRequest: View {
+struct GetRequestView: View {
     let requestType: GetPost
     var body: some View {
         VStack (alignment: .center) {
@@ -28,5 +28,5 @@ struct GetRequest: View {
 }
 
 #Preview {
-    GetRequest(requestType: .get)
+    GetRequestView(requestType: .get)
 }

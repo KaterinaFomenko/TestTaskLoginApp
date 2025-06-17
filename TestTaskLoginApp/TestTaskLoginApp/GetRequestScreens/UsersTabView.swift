@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct UsersTabView: View {
+    @State private var isShowFullScreen = false
+    
     var body: some View {
         TabView {
             Tab("Users",
                 systemImage: "person.3.sequence.fill") {
                 UsersScreen()
             }
+                
             Tab("Sign up",
                  systemImage: "person.crop.circle.fill.badge.plus") {
+                
                 SignUpScreen()
+                    
             }
         }
+        .fullScreenCover(isPresented: $isShowFullScreen, content: {
+            
+        })
+        
         .onAppear() {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -32,6 +41,8 @@ struct UsersTabView: View {
         }
     }
 }
+
+
 
 #Preview {
     UsersTabView()

@@ -1,5 +1,5 @@
 //
-//  PositionList.swift
+//  PositionListView.swift
 //  TestTaskLoginApp
 //
 //  Created by Катерина Фоменко on 14/06/2025.
@@ -14,7 +14,7 @@ enum Position: String, CaseIterable {
     case qa = "QA"
 }
 
-struct PositionList: View {
+struct PositionListView: View {
     @State private var selectedPosition: Position = .frontend
     
     var body: some View {
@@ -62,5 +62,5 @@ struct СustomCircleSelectState: View {
 
 
 #Preview {
-    PositionList()
+    PositionListView()
 }

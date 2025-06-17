@@ -33,7 +33,7 @@ struct ContentView: View {
                         .padding()
                 }
                 .background(isPressedTryAgain ? Color(.pressed) : Color(.normal) )
-                .cornerRadius(25)
+                .cornerRadius(CGFloat(AppSize.radiusBTN))
                 .tint(.black)
                 
             }

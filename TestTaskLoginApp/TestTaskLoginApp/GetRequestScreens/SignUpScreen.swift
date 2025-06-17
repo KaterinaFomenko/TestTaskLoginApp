@@ -15,21 +15,22 @@ struct SignUpScreen: View {
     @State var position = ""
     
     var body: some View {
-        VStack (alignment: .center) {
-            GetRequest(requestType: .post)
+        VStack (alignment: .center, spacing: 20) {
+            GetRequestView(requestType: .post)
             
-            TextFieldGroupe(name: $name,
+            TextFieldGroupeView(name: $name,
                             email: $email,
                             phone: $phone,
                             position: $position)
         }
         
         HStack {
-            PositionList()
-                .padding(.leading, 40)
+            PositionListView()
+                .padding(20)
             Spacer()
             
         }
+        LoadFotoView()
     }
 }
 
