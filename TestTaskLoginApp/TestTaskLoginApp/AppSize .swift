@@ -12,5 +12,6 @@ enum AppSize {
     static let font2 = "Chango-Regular"
     
     static let radiusBTN = 50
+    static let radiusTxtField: CGFloat = 6
     
 }

@@ -28,7 +28,7 @@ struct LoadFotoView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .stroke(Color(.grayMiddle), lineWidth: 2)
-                    .frame(height: 70)
+                    .frame(height: 60)
             )
             .padding(.horizontal, 20)
             

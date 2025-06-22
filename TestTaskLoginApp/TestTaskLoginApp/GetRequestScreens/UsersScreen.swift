@@ -14,7 +14,7 @@ struct UsersScreen: View {
         VStack (alignment: .center) {
             ZStack {
                 Color.primaryYellow
-                    .frame(height: 80)
+                    .frame(height: 60)
                 Text("Working with GET request")
                     .font(.custom(AppSize.font1, size: 25))
                     .padding()

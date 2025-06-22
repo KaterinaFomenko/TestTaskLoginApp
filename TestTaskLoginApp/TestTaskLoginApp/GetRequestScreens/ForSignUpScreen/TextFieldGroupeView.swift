@@ -12,27 +12,44 @@ struct TextFieldGroupeView: View {
     @Binding var email: String
     @Binding var phone: String
     @Binding var position: String
+    @Binding var isValidName: Bool
+    @Binding var isValidEmail: Bool
+    @Binding var isValidPhone: Bool
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 15) {
             
-            TextField("Your name", text: $name) {
+            VStack(spacing: 5) {
+                TextField("Your name", text: $name, axis: .horizontal)
+                    .customTextField(isValid: isValidName)
+
+                "Required field".customSubText(isValid: isValidName)
             }
-            .customTextFild()
             
-            TextField("Email", text: $email){
+            VStack(spacing: 5) {
+                TextField("Email", text: $email)
+                .customTextField(isValid: isValidEmail)
+                .textContentType(.emailAddress)
+                .disableAutocorrection(true)
+                .textInputAutocapitalization(.never)
+                .foregroundColor(email.isValidEmail ? .green : .red)
+
+                "Invalid email format".customSubText(isValid: isValidEmail)
             }
-            .customTextFild()
+           
             
-            VStack(alignment: .leading) {
-                TextField("Phone", text: $phone){
+            VStack(spacing: 5) {
+                TextField("Phone", text: $phone)
+                .customTextField(isValid: isValidPhone)
+
+                if isValidPhone {
+                    "+38 (xxx) xxx-xx-xx".customSubText(isValid: isValidPhone)
+                } else {
+                    "Required field".customSubText(isValid: isValidPhone)
                 }
-                .customTextFild()
-                Text("+38 (xxx) xxx-xx-xx")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                    .padding(.leading)
+                
             }
+           
         }
         .padding(.horizontal)
     }
@@ -41,18 +58,24 @@ struct TextFieldGroupeView: View {
 #Preview("With Data") {
     
     TextFieldGroupeView(name: .constant("Malcolm Bailey"),
-                    email: .constant("jany_murazik@gmail.com"),
-                    phone: .constant("+3(098) 111 11 11"),
-                    position: .constant("Frontend")
-                    )
+                        email: .constant("jany_murazik@gmail.com"),
+                        phone: .constant("+3(098) 111 11 11"),
+                        position: .constant("Frontend"),
+                        isValidName: .constant(true),
+                        isValidEmail: .constant(true),
+                        isValidPhone: .constant(true)
+    )
 }
 
 #Preview("Empty Data") {
     
     TextFieldGroupeView(name: .constant(""),
-                    email: .constant(""),
-                    phone: .constant(""),
-                    position: .constant("")
-                    )
+                        email: .constant(""),
+                        phone: .constant(""),
+                        position: .constant(""),
+                        isValidName: .constant(false),
+                        isValidEmail: .constant(false),
+                        isValidPhone: .constant(false)
+    )
 }
 

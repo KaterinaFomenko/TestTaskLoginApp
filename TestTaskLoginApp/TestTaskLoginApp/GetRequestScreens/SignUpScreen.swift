@@ -8,29 +8,49 @@
 import SwiftUI
 
 struct SignUpScreen: View {
-    
-    @State var name = ""
-    @State var email = ""
-    @State var phone = ""
-    @State var position = ""
+
+    @StateObject var signUpViewModel = SignUpViewModel()
     
     var body: some View {
-        VStack (alignment: .center, spacing: 20) {
-            GetRequestView(requestType: .post)
+        ScrollView {
+            VStack (alignment: .center, spacing: 20) {
+                GetRequestView(requestType: .post)
+                
+                TextFieldGroupeView(name: $signUpViewModel.name,
+                                    email:  $signUpViewModel.email,
+                                    phone:  $signUpViewModel.phone,
+                                    position:  $signUpViewModel.position,
+                                    isValidName:  $signUpViewModel.isValidName,
+                                    isValidEmail: $signUpViewModel.isValidEmail,
+                                    isValidPhone: $signUpViewModel.isValidPhone
+                                  )
+                
+                .submitLabel(.done)
+                .onSubmit {
+                    print("Submitted name: \(signUpViewModel.name)")
+                    print("Submitted email: \(signUpViewModel.email)")
+                    print("Submitted phone: \(signUpViewModel.phone)")
+                }
+                
+                .onChange(of: signUpViewModel.name) { oldValue, newValue in
+                    signUpViewModel.setName(newValue)
+                }
+                .onChange(of: signUpViewModel.email) { oldValue, newValue in
+                    signUpViewModel.setEmail(newValue)
+                }
+                .onChange(of: signUpViewModel.phone) { oldValue, newValue in
+                    signUpViewModel.setPhone(newValue)
+                }
+            }
             
-            TextFieldGroupeView(name: $name,
-                            email: $email,
-                            phone: $phone,
-                            position: $position)
+            HStack {
+                PositionListView()
+                    .padding(20)
+                Spacer()
+                
+            }
+            LoadFotoView()
         }
-        
-        HStack {
-            PositionListView()
-                .padding(20)
-            Spacer()
-            
-        }
-        LoadFotoView()
     }
 }
 
